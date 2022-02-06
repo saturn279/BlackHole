@@ -70,7 +70,8 @@ class ExtStorageProvider {
             }
           }
         } else {
-          return throw 'something went wrong';
+          directory = await getExternalStorageDirectory();
+          return directory!.path;
         }
       } else if (Platform.isIOS) {
         directory = await getApplicationDocumentsDirectory();
